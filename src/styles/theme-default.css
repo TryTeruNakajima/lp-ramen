@@ -1,0 +1,11 @@
+@theme {
+  --color-base: #f5efe6;
+  --color-base-alt: #2c2420;
+  --color-accent: #b8860b;
+  --color-accent-sub: #8b2500;
+  --color-text: #2c2420;
+  --color-text-invert: #f5efe6;
+  --color-text-muted: #7a6e63;
+  --color-border: #d4c8b8;
+  --font-serif: 'Noto Serif JP', serif;
+}

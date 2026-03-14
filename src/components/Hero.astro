@@ -1,0 +1,113 @@
+---
+// Hero.astro
+// フルスクリーンHeroセクション - 上州豚骨 中島屋
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden bg-base-alt"
+>
+  <!-- 背景画像 -->
+  <div class="absolute inset-0" id="hero-bg">
+    <img
+      src="/hero.webp"
+      alt="中島屋の濃厚豚骨ラーメン"
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+    />
+  </div>
+
+  <!-- オーバーレイ -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- コンテンツ -->
+  <div class="relative z-10 text-center px-4">
+    <!-- タグライン -->
+    <p
+      class="text-white text-sm md:text-base tracking-[0.3em] mb-4"
+      data-animate="text-reveal"
+      style="animation-delay: 0.3s"
+    >
+      濃厚豚骨ラーメン専門店
+    </p>
+
+    <!-- 店名（h1） -->
+    <h1
+      class="font-serif font-black text-4xl md:text-6xl text-white mb-6 leading-tight"
+      data-animate="text-reveal"
+      style="animation-delay: 0.6s"
+    >
+      上州豚骨 中島屋
+    </h1>
+
+    <!-- キャッチコピー -->
+    <p
+      class="text-xl md:text-2xl text-white font-serif mb-3"
+      data-animate="text-reveal"
+      style="animation-delay: 1.0s"
+    >
+      一杯に込めた、上州の誇り
+    </p>
+
+    <!-- サブコピー -->
+    <p
+      class="text-white/80 text-sm md:text-base mb-10"
+      data-animate="text-reveal"
+      style="animation-delay: 1.3s"
+    >
+      群馬の厳選素材と丁寧に炊き上げた濃厚豚骨スープ
+    </p>
+
+    <!-- CTAボタン -->
+    <a
+      href="#about"
+      class="inline-block px-8 py-3 bg-accent text-base border-2 border-accent font-bold tracking-wider text-white hover:bg-accent/90 transition-all duration-300"
+      data-animate="fade-in-up"
+      style="animation-delay: 1.6s"
+    >
+      こだわりを見る
+    </a>
+  </div>
+
+  <!-- 装飾線（下部） -->
+  <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+</section>
+
+<script>
+  // パララックス効果
+  const heroBg = document.getElementById('hero-bg');
+
+  if (heroBg) {
+    const heroSection = heroBg.parentElement;
+
+    window.addEventListener('scroll', () => {
+      if (!heroSection) return;
+      const scrollY = window.scrollY;
+      const heroHeight = heroSection.offsetHeight;
+      if (scrollY < heroHeight) {
+        heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
+      }
+    }, { passive: true });
+  }
+
+  // テキストリビールアニメーション（ページロード時）
+  const animateElements = document.querySelectorAll<HTMLElement>('#hero [data-animate]');
+
+  // prefers-reduced-motion チェック
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    // アニメーション無効化: 即座に表示
+    animateElements.forEach((el) => {
+      el.classList.add('is-visible');
+    });
+  } else {
+    // staggered delay でアニメーション開始
+    animateElements.forEach((el) => {
+      const delay = parseFloat(el.style.animationDelay || '0') * 1000;
+      setTimeout(() => {
+        el.classList.add('is-visible');
+      }, delay);
+    });
+  }
+</script>

@@ -1,5 +1,6 @@
 {
-  "name": "lp-ramen",
+  "name": "lp-nakajimaya",
+  "description": "上州豚骨 中島屋 - 濃厚豚骨ラーメン専門店ランディングページ",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -12,6 +13,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.0.4"
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^6.0.4",
+    "tailwindcss": "^4.2.1"
   }
 }

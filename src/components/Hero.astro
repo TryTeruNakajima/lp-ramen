@@ -70,44 +70,55 @@
   </div>
 
   <!-- 装飾線（下部） -->
-  <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+  <div
+    class="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-accent to-transparent"
+  >
+  </div>
 </section>
 
 <script>
   // パララックス効果
-  const heroBg = document.getElementById('hero-bg');
+  const heroBg = document.getElementById("hero-bg")
 
   if (heroBg) {
-    const heroSection = heroBg.parentElement;
+    const heroSection = heroBg.parentElement
 
-    window.addEventListener('scroll', () => {
-      if (!heroSection) return;
-      const scrollY = window.scrollY;
-      const heroHeight = heroSection.offsetHeight;
-      if (scrollY < heroHeight) {
-        heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
-      }
-    }, { passive: true });
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!heroSection) return
+        const scrollY = window.scrollY
+        const heroHeight = heroSection.offsetHeight
+        if (scrollY < heroHeight) {
+          heroBg.style.transform = `translateY(${scrollY * 0.3}px)`
+        }
+      },
+      { passive: true },
+    )
   }
 
   // テキストリビールアニメーション（ページロード時）
-  const animateElements = document.querySelectorAll<HTMLElement>('#hero [data-animate]');
+  const animateElements = document.querySelectorAll<HTMLElement>(
+    "#hero [data-animate]",
+  )
 
   // prefers-reduced-motion チェック
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches
 
   if (prefersReducedMotion) {
     // アニメーション無効化: 即座に表示
     animateElements.forEach((el) => {
-      el.classList.add('is-visible');
-    });
+      el.classList.add("is-visible")
+    })
   } else {
     // staggered delay でアニメーション開始
     animateElements.forEach((el) => {
-      const delay = parseFloat(el.style.animationDelay || '0') * 1000;
+      const delay = parseFloat(el.style.animationDelay || "0") * 1000
       setTimeout(() => {
-        el.classList.add('is-visible');
-      }, delay);
-    });
+        el.classList.add("is-visible")
+      }, delay)
+    })
   }
 </script>

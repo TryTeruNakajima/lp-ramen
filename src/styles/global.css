@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-serif: 'Noto Serif JP', 'Noto Serif CJK JP', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
+}
+
 /* ===== スクロールアニメーション初期状態 ===== */
 [data-animate] {
   opacity: 0;

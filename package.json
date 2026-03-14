@@ -15,13 +15,13 @@
     "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.1",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^6.0.4",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
+    "@astrojs/cloudflare": "^13.1.1",
     "wrangler": "^4.73.0"
   }
 }

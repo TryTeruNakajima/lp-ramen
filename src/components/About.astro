@@ -1,7 +1,5 @@
 ---
-import { Image } from "astro:assets"
-import soupImage from "../assets/soup.webp"
-import gunmaImage from "../assets/gunma.webp"
+
 ---
 
 <section id="about" class="py-20 md:py-32 bg-base-alt">
@@ -23,14 +21,16 @@ import gunmaImage from "../assets/gunma.webp"
         class="relative rounded-lg overflow-hidden h-80 md:h-96"
         data-animate="slide-in-left"
       >
-        <Image
-          src={soupImage}
+        <img
+          src="/img/soup-768.webp"
+          srcset="/img/soup-480.webp 480w, /img/soup-768.webp 768w"
+          sizes="(min-width: 768px) 50vw, 100vw"
           alt="極上の豚骨スープ"
           class="w-full h-full object-cover"
-          widths={[480, 768]}
-          sizes="(min-width: 768px) 50vw, 100vw"
           loading="lazy"
-          quality={75}
+          decoding="async"
+          width="768"
+          height="1152"
         />
         <div
           class="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent"
@@ -51,14 +51,16 @@ import gunmaImage from "../assets/gunma.webp"
         class="relative rounded-lg overflow-hidden h-80 md:h-96"
         data-animate="slide-in-right"
       >
-        <Image
-          src={gunmaImage}
+        <img
+          src="/img/gunma-700.webp"
+          srcset="/img/gunma-480.webp 480w, /img/gunma-700.webp 700w"
+          sizes="(min-width: 768px) 50vw, 100vw"
           alt="上州の厳選食材"
           class="w-full h-full object-cover"
-          widths={[480, 768]}
-          sizes="(min-width: 768px) 50vw, 100vw"
           loading="lazy"
-          quality={75}
+          decoding="async"
+          width="700"
+          height="450"
         />
         <div
           class="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent"

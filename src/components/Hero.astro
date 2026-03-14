@@ -1,6 +1,8 @@
 ---
 // Hero.astro
 // フルスクリーンHeroセクション - 上州豚骨 中島屋
+import { Image } from "astro:assets"
+import heroImage from "../assets/hero.webp"
 ---
 
 <section
@@ -9,11 +11,14 @@
 >
   <!-- 背景画像 -->
   <div class="absolute inset-0" id="hero-bg">
-    <img
-      src="/hero.webp"
+    <Image
+      src={heroImage}
       alt="中島屋の濃厚豚骨ラーメン"
       class="w-full h-full object-cover object-center"
+      widths={[640, 1024, 1920]}
+      sizes="100vw"
       loading="eager"
+      quality={75}
     />
   </div>
 
